@@ -1,0 +1,109 @@
+/public
+ ├── index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LotoActivo</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1e1e2f">
+
+  <!-- SEO básico -->
+  <meta name="description" content="App web PWA para análisis y predicción de loterías">
+  <meta name="robots" content="index, follow">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f1220;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .app {
+      text-align: center;
+      max-width: 420px;
+      padding: 20px;
+      background: #1e1e2f;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h1 {
+      margin-top: 0;
+      color: #00ffcc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #00ffcc;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00ddb2;
+    }
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <h1>🎯 LotoActivo</h1>
+    <p>Análisis y predicción simulada de loterías</p>
+
+    <button onclick="generarPrediccion()">Generar predicción</button>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    function generarPrediccion() {
+      const animales = [
+        "Perro 🐶", "Gato 🐱", "Caballo 🐴", "Gallo 🐓",
+        "León 🦁", "Elefante 🐘", "Mono 🐒", "Toro 🐂"
+      ];
+      const aleatorio = animales[Math.floor(Math.random() * animales.length)];
+      document.getElementById("resultado").innerText =
+        "Predicción sugerida: " + aleatorio;
+    }
+  </script>
+
+</body>
+</html>
+
+ ├── manifest.json
+{
+  "name": "LotoActivo",
+  "short_name": "LotoActivo",
+  "description": "App web PWA para análisis y predicción de loterías",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f1220",
+  "theme_color": "#1e1e2f",
+  "orientation": "portrait",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/616/616554.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/616/616554.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
